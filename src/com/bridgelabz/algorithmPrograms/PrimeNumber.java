@@ -1,30 +1,40 @@
 package com.bridgelabz.algorithmPrograms;
 
-import java.util.Scanner;
 
 public class PrimeNumber {
 
-	static void primeCal(int num)
-	{
-		int count=0;
-		for(int i=1;i<=num;i++)
-		{
-			if(num%i==0)
-			{
-			    count++;	        
-			}
-		}
-		if(count==2)
-			System.out.println(num+" is a prime number ");
-		else
-			System.out.println("Not a prime number ");       
-	}
+	public static boolean CheckPrime(int numberToCheck) {
+        int remainder;
+        for (int i = 2; i <= numberToCheck / 2; i++) {
+            remainder = numberToCheck % i;
+            //if remainder is 0 than numberToCheckber is not prime and break loop. Else continue loop
+            if (remainder == 0) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 	public static void main(String[] args) {
-		System.out.println("Enter a number ");
-		Scanner scanner=new Scanner(System.in);
-		int n=scanner.nextInt();
-		primeCal(n);
-		scanner.close();
+		int i;
+        int num = 0;
+        int maxCheck = 1000; 
+        boolean isPrime = true;
+
+        //Empty String
+        String primeNumbersFound = "";
+
+        //Start loop 2 to maxCheck
+        for (i = 2; i <= maxCheck; i++) {
+            isPrime = CheckPrime(i);
+            if (isPrime) {
+                primeNumbersFound = primeNumbersFound + i + " ";
+            }
+        }
+        System.out.println("Prime numbers from 1 to " + maxCheck + " are:");
+        // Print prime numbers from 1 to maxCheck
+        System.out.println(primeNumbersFound);
 	}
 
 }
