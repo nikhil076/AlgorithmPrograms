@@ -11,8 +11,9 @@ public class BinarySearch
 		int left=0,right=UserStringArray.length-1;
 		while(left<=right)
 		{
-			int middle = left+(right-1)/2;
+			int middle = left+(right-1)/2; //to get middle value to split the array in half 
 			
+			//to get result by comparing user string with the array values
 			int temp = check.compareTo(UserStringArray[middle]);
 			
 			if(temp==0)
@@ -29,9 +30,9 @@ public class BinarySearch
 	public static void main(String[] args) 
 	{
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter list of word seperaated by comma ',' :");
+		System.out.println("Enter list of word seperated by comma ',' :");
 		String userString = scanner.next();
-		String[] userStringArray = userString.split(",");
+		String[] userStringArray = userString.split(",");//to split the string and store in array
 		Arrays.sort(userStringArray);
 		System.out.println("Enter the word to check :");
 		String check = scanner.next();
