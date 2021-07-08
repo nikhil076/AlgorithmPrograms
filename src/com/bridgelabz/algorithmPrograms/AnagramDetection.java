@@ -3,40 +3,42 @@ package com.bridgelabz.algorithmPrograms;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class AnagramDetection {
+public class AnagramDetection 
+{
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		Scanner scanner = new Scanner(System.in);
 
-	    // take input from users
-	    System.out.print("Enter first String: ");
+	    System.out.print("Enter the first String value: ");
 	    String userString1 = scanner.nextLine();
-	    System.out.print("Enter second String: ");
+	    System.out.print("Enter the second String value: ");
 	    String userString2 = scanner.nextLine();
 
-	    // check if length is same
-	    if(userString1.length() == userString2.length()) {
+	    if(userString1.length() == userString2.length()) 
+	    {
+	      //to store the string into character array
+	      char[] charArrayFirst = userString1.toCharArray();
+	      char[] charArraySecond = userString2.toCharArray();
 
-	      // convert strings to char array
-	      char[] charArray1 = userString1.toCharArray();
-	      char[] charArray2 = userString2.toCharArray();
+	      //to sort both the character array 
+	      Arrays.sort(charArrayFirst);
+	      Arrays.sort(charArraySecond);
 
-	      // sort the char array
-	      Arrays.sort(charArray1);
-	      Arrays.sort(charArray2);
+	      //to get the result by comparing both character array
+	      boolean result = Arrays.equals(charArrayFirst, charArraySecond);
 
-	      // if sorted char arrays are same
-	      // then the string is anagram
-	      boolean result = Arrays.equals(charArray1, charArray2);
-
-	      if(result) {
+	      if(result) 
+	      {
 	        System.out.println(userString1 + " and " + userString2 + " are anagram.");
 	      }
-	      else {
+	      else 
+	      {
 	        System.out.println(userString1 + " and " + userString2 + " are not anagram.");
 	      }
 	    }
-	    else {
+	    else 
+	    {
 	      System.out.println(userString1 + " and " + userString2 + " are not anagram.");
 	    }
 
