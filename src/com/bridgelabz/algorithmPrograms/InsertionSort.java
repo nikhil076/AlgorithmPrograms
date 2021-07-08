@@ -1,40 +1,31 @@
 package com.bridgelabz.algorithmPrograms;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class InsertionSort 
 {
-	//to insert value using insertion sort algorithm
-	public static String[] insertionSortAlgo(String array[], int arrayLength)
-	{
-		//temporary string to store the value
-		String temp="";
-		for(int i=0;i<arrayLength;i++)
-		{
-			for(int j=i+1;j<arrayLength;j++)
-			{
-				if(array[i].compareToIgnoreCase(array[j])>0)
-				{
-					temp = array[i];
-					array[i]=array[j];
-					array[j]=temp;
-				}
-			}
-		}
-		return array;
-	}
-
 	public static void main(String[] args) 
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter list of word seperaated by comma ',' :");
-		String userString = scanner.next();
-		String[] arr =userString.split(",");
-		String sortedArray[] = insertionSortAlgo(arr, arr.length); 
-		for(int i=0;i<sortedArray.length;i++)
-		{
-			System.out.println(sortedArray[i]);
-		}
-		scanner.close();
+		int i,j;
+		  String key;
+		  Scanner scanner = new Scanner(System.in);
+			System.out.println("Enter list of word seperated by comma ',' :");
+			String userString = scanner.next();
+			String[] inputArray = userString.split(",");//to split the string and store in array
+		  System.out.println(Arrays.toString(inputArray));
+		  for (j = 1; j < inputArray.length; j++) { //the condition has changed
+		    key = inputArray[j];
+		    i = j - 1;
+		    while (i >= 0) {
+		      if (key.compareTo(inputArray[i]) > 0) {//here too
+		        break;
+		      }
+		      inputArray[i + 1] = inputArray[i];
+		      i--;
+		    }
+		    inputArray[i + 1] = key;
+		  }
+		  System.out.println("After insertion sort:\n"+Arrays.toString(inputArray));
 	}	
 }
